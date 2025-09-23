@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Sigma Boys</title>
+  <meta name="description" content="Official site of The Sigma Boys — updates, members, events, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #151823;
+      --text: #e6e9f0;
+      --muted: #aab1c5;
+      --accent: #6ee7ff;
+      --accent-2: #8b5cf6;
+      --ok: #10b981;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* Layout */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+    header { position: sticky; top: 0; backdrop-filter: saturate(140%) blur(8px); background: rgba(15,17,21,0.7); border-bottom: 1px solid #1f2430; z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.5px; }
+    .logo { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display: grid; place-items: center; color: #0b0e12; font-weight: 800; }
+    .menu { display: flex; gap: 20px; }
+    .menu a { color: var(--text); font-weight: 600; }
+    .menu a:hover { color: var(--accent); }
+    .menu-btn { display: none; background: none; border: 1px solid #2a3142; color: var(--text); padding: 8px 10px; border-radius: 6px; }
+
+    /* Hero */
+    .hero { padding: 80px 0 40px; text-align: center; }
+    .hero h1 { font-size: 44px; margin: 0 0 12px; line-height: 1.1; }
+    .hero p { margin: 0 auto 22px; max-width: 720px; color: var(--muted); }
+    .cta { display: inline-flex; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 18px; border-radius: 10px; font-weight: 700; border: 1px solid #263043;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b0e12; border: none; }
+    .btn-secondary { background: #121622; color: var(--text); }
+    .pill { display: inline-block; background: #121622; color: var(--muted); border: 1px solid #263043; padding: 8px 12px; border-radius: 999px; font-size: 13px; }
+
+    /* Sections */
+    section { padding: 40px 0; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid #202638; border-radius: 14px;
+      padding: 18px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .card h3 { margin: 0; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); }
+    .badge { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; color: #0b0e12; }
+    .ok { background: var(--ok); }
+    .warn { background: var(--warn); color: #0b0e12; }
+
+    /* About + members */
+    .columns { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 18px; }
+    .list { display: grid; gap: 10px; }
+    .list-item { display: flex; align-items: center; gap: 12px; padding: 10px; background: #121622; border-radius: 10px; border: 1px solid #263043; }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: #1c2233; border: 1px solid #2b344a; }
+
+    /* Footer */
+    footer { border-top: 1px solid #1f2430; margin-top: 40px; }
+    .foot { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 24px 0; color: var(--muted); }
+    .small { font-size: 13px; color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .card-grid { grid-template-columns: 1fr 1fr; }
+      .columns { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .menu { display: none; }
+      .menu.open { display: flex; flex-direction: column; padding: 12px 0; }
+      .menu-btn { display: inline-block; }
+      .hero h1 { font-size: 34px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">Σ</div>
+        <span>The Sigma Boys</span>
+      </div>
+      <nav class="menu" id="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#members">Members</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn">Menu</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero container">
+    <span class="pill">Est. 2025 • Hong Kong</span>
+    <h1>Bold energy. Real brotherhood.</h1>
+    <p>Welcome to The Sigma Boys — a crew built on grit, laughter, and showing up for each other. Check our latest events, meet the members, and tap in if you want to collaborate.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#events">View events</a>
+      <a class="btn btn-secondary" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- Stats / Highlights -->
+  <section class="container">
+    <div class="card-grid">
+      <div class="card">
+        <h3>Weekly meetups</h3>
+        <p>Casual hangs, basketball runs, late-night food missions — we keep it fun and real.</p>
+        <span class="badge ok">Active</span>
+      </div>
+      <div class="card">
+        <h3>Community projects</h3>
+        <p>We pitch in for local clean-ups and simple charity drives around Yuen Long.</p>
+        <span class="badge ok">Ongoing</span>
+      </div>
+      <div class="card">
+        <h3>Collabs</h3>
+        <p>Open to working with schools, clubs, and creators. DM us to plan something.</p>
+        <span class="badge warn">Scheduling</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About + Members -->
+  <section id="about" class="container">
+    <div class="columns">
+      <div>
+        <h2>About the crew</h2>
+        <p class="small">We’re friends first, a team second. No drama, no ego — just accountability, good vibes, and taking care of our people.</p>
+        <div class="list" style="margin-top: 12px;">
+          <div class="list-item"><span class="avatar"></span><div><strong>Core values</strong><br/><span class="small">Respect • Effort • Integrity • Humor</span></div></div>
+          <div class="list-item"><span class="avatar"></span><div><strong>What we do</strong><br/><span class="small">Sport, study sessions, volunteering, weekend trips</span></div></div>
+          <div class="list-item"><span class="avatar"></span><div><strong>Where we meet</strong><br/><span class="small">Yuen Long, Tuen Mun, and around HK</span></div></div>
+        </div>
+      </div>
+      <div id="members">
+        <h2>Members</h2>
+        <div class="list">
+          <div class="list-item"><span class="avatar"></span><div><strong>Chi</strong><br/><span class="small">Organizer • Logistics & planning</span></div></div>
+          <div class="list-item"><span class="avatar"></span><div><strong>Ash</strong><br/><span class="small">Media lead • Photos & clips</span></div></div>
+          <div class="list-item"><span class="avatar"></span><div><strong>Max</strong><br/><span class="small">Sports captain • Weekly training</span></div></div>
+          <div class="list-item"><span class="avatar"></span><div><strong>Jay</strong><br/><span class="small">Community • Outreach & collabs</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section id="events" class="container">
+    <h2>Upcoming events</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Saturday hoops</h3>
+        <p>3v3 at Tin Shui Wai Sports Centre. Warm-up at 15:30, games start 16:00.</p>
+        <span class="badge ok">This week</span>
+      </div>
+      <div class="card">
+        <h3>Study sprint</h3>
+        <p>Math + English revision. Bring notes. Starbucks near Yuen Long Station, 19:30.</p>
+        <span class="badge ok">Wednesday</span>
+      </div>
+      <div class="card">
+        <h3>Clean-up run</h3>
+        <p>Light cleanup at Kam Tin River trail. Gloves provided. Meet 10:00.</p>
+        <span class="badge warn">Sign up</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <div class="columns">
+      <div class="card">
+        <h3>DM us</h3>
+        <p>Best way to reach us is DM — we reply fast.</p>
+        <p class="small">Instagram: <a href="#">@thesigmaboys</a><br/>Discord: <a href="#">discord.gg/sigmaboys</a></p>
